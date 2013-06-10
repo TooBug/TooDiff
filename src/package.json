@@ -1,0 +1,10 @@
+{
+	"name":"TooDiff",
+	"main":"index.html",
+	"window":{
+		// "frame":false,
+		"toolbar": false,
+		"width":900,
+		"height":600
+	}
+}

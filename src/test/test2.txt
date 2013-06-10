@@ -1,0 +1,8 @@
+# TooDiff
+
+TooDiff 是由 TooBug开发的一款Diff工具
+目前该工具还在Demo阶段，欢迎使用，如果有bug可以提给我哦，使用愉快！
+联系方式：
+<http://weibo.com/toooobug>
+<http://t.qq.com/toobug>
+<https://github.com/toooobug>

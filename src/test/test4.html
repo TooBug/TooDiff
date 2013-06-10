@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style type="text/css">
+		body {font-family:'微软雅黑';}
+        #preloader {background-image: url(http://prowork.oa.com/Tpl/default/Public/images/footer_bg_left.gif);width: 0px;height: 0px;display: inline;}
+        th,td{font-size: 14px;}
+        th{text-align: center;}
+		img{border:0 none;}
+		p {font-size:14px;text-indent:2em;}
+		span {font-size:16px;font-weight:bold}
+		h4{
+			font-size:16px;
+			font-weight:bold;
+			color:#333;
+			border-bottom:1px solid #aaa;
+			padding:10px 0 10px 30px;
+			margin:30px 0 0;
+}
+    </style>
+</head>
+<body>
+<p>Hi all,</p>
+<p>这是部门的加班信息汇总，如有疑问请联系Robyi、Jackiewen。</p>
+	<table width="100%" style="color:#333">
+		<?php
+			echo "<tr><td colspan='2' height='30' style='border-bottom:2px solid #ee7707'>";
+			echo "<a style='color:#ee7707;font-size:16px;font-weight:bold;text-decoration:none'>工作日加班情况(";
+			echo "加班人次：";
+			echo $table[2]['weekday_count'];
+			echo ",加班时长".$table[2]['weekday_cost'].")</a>";
+			echo "</td></tr>";
+		?>
+	</table>
+	<table width="100%" cellspacing="0" cellpadding="0" style="table-layout:fixed;border-collapse:collapse;color:#555;line-height:40px;border:1px solid;" rules='all'>
+		<tr>
+			<td width='40' style="font-weight:bold;padding:5px 10px">日期</td>
+			<td width='60' style="font-weight:bold;padding:5px 10px">专业组</td>
+			<td width='40' style="font-weight:bold;padding:5px 10px">加班人员</td>
+			<td width='40' style="font-weight:bold;padding:5px 10px">离岗时间</td>
+			<td width='20' style="font-weight:bold;padding:5px 10px">时长</td>
+			<td width='80' style="font-weight:bold;padding:5px 10px">工作内容</td>
+		</tr>
+	<?php
+		//var_dump($table);
+		$weekday_table=$table[0]; //var_dump($weekday_table);
+		foreach($weekday_table as $key => $value){
+			$date_rowspan=0;
+			foreach($value as $v){
+				$date_rowspan+=count($v);
+			}
+			echo "<tr>";
+			echo "<td rowspan='$date_rowspan'>$key</td>";
+			$row_close=false; //行是否闭合
+			foreach($value as $k => $v){
+				$row_close=false;
+				if($row_close){
+					echo "<tr>";
+					echo "<td rowspan='".count($v)."'>$k</td>";
+				}
+				else{
+					echo "<td rowspan='".count($v)."'>$k</td>";
+				}
+				$data=$v;
+				foreach($data as $iv){
+					if($row_close){
+						//新起一行
+						echo "<tr>";
+					}
+					echo "<td>".$iv['os_us_name']."</td>"; //加班人员
+					echo "<td>".$iv['os_checkoutTime']."</td>"; //离岗时间
+					$cost=round((strtotime($iv['os_checkoutTime']) - strtotime($iv['os_checkinTime']))/3600,2);
+					echo "<td>$cost</td>"; //时长
+					echo "<td>".$iv['os_workDetail']."</td>";
+					echo "</tr>";
+					$row_close=true;
+				}
+			}
+				
+			
+		}
+	?>
+	</table>
+	<table width="100%" cellpadding="0" cellspacing="0">
+		<tr><td colspan="2" height="50"></td></tr>
+		<tr><td colspan="2" style="color:#999; font-size:12px; padding:0 10px;">**此邮件由PROWORK系统自动发送，请勿回复。**</td></tr>
+		<tr><td colspan="2" height="200"></td></tr>
+		<tr><td width="324" height="100"><img src="http://prowork.oa.com/images/maillogo.png" width="324" alt="Prowork" /></td>
+        <td align="right" bgcolor="#eff1f0">
+            <table cellpadding="0" style="font-family:Tahoma; font-size:12px; color:#555;">
+				<tr><td align="left"><a href="http://prowork.oa.com" style="color:#ee7707; font-weight:bold; font-size:14px;">http://prowork.oa.com</a></td></tr>
+				<tr><td align="left">用户研究与体验设计部 版权所有</td></tr>
+				<tr><td align="left" style="padding-right:10px;">Copyright &copy; 1998-<?php echo date ( 'Y' );?> Tencent Inc. All Rights Reserved</td></tr>
+			</table>
+</body>
+</html>

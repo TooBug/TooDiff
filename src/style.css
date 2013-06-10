@@ -1,0 +1,75 @@
+*{
+	padding:0;margin:0;
+}
+html{
+	-webkit-user-select:none;
+	vertical-align: top;
+	height:100%;
+}
+
+body{
+	height:100%;
+}
+
+#debug{
+	position: absolute;
+	left:0;
+	bottom:0;
+}
+
+header{
+	-webkit-app-region:drag;
+	padding:5px;
+	height:20px;
+	color:#333;
+	font-family: sans-serif;
+	background:#eee;
+}
+
+.file{
+	-webkit-app-region:no-drag;
+	width:-webkit-calc(50% - 62px);
+	float:left;
+	margin:5px;
+	background:#eee;
+	border:1px solid #ccc;
+	overflow: auto;
+	white-space: nowrap;
+	height:-webkit-calc(100% - 10px);
+	font-size:14px;
+	list-style-position: outside;
+	padding-left:50px;
+}
+
+.file li{
+	color:#aaa;
+	margin:0.2em;
+	line-height: 1.5em;
+	font-family: Courier;
+}
+
+.file li span{
+	color:#333;
+}
+
+.file .copy{
+
+}
+
+.file .replace{
+
+	background: rgb(204,204,235);
+
+}
+
+.file .insert{
+
+	background: rgb(204,235,204);
+
+}
+
+.file .delete{
+
+	background: rgb(235,204,204);
+
+}
