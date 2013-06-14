@@ -38,8 +38,10 @@ $('#file1,#file2').on('scroll',function(e){
 	var heightPercent = $this.get(0).scrollTop / thisHeight,
 		widthPercent = $this.get(0).scrollLeft /thisWidth;
 
-	$that.get(0).scrollTop = heightPercent * thatHeight;
-	$that.get(0).scrollLeft = widthPercent * thatWidth;
+	/*$that.get(0).scrollTop = heightPercent * thatHeight;
+	$that.get(0).scrollLeft = widthPercent * thatWidth;*/
+	$that.get(0).scrollTop = $this.get(0).scrollTop;
+	$that.get(0).scrollLeft = $this.get(0).scrollLeft;
 
 });
 
@@ -72,15 +74,15 @@ $('#file1,#file2').on('dragover',function(){
 
 			if(files.length >= 2){
 
-				console.log(index);
-
 				window['text'+(index+1)] = e.target.result;
 
 			}else{
 				if($this.is('#file1')){
 					window.text1 = e.target.result;
+					$('#fileInfo1').text(file.name);
 				}else{
 					window.text2 = e.target.result;
+					$('#fileInfo2').text(file.name);
 				}
 			}
 

@@ -26,6 +26,19 @@ header{
 	background:#eee;
 }
 
+.fileInfo{
+
+	width:-webkit-calc(50% - 12px);
+	float:left;
+	margin:5px 5px 0;
+	padding:5px 0;
+	text-align: center;
+	font-size: 12px;
+	background:#eee;
+	border:1px solid #ccc;
+
+}
+
 .file{
 	-webkit-app-region:no-drag;
 	width:-webkit-calc(50% - 62px);
@@ -35,7 +48,7 @@ header{
 	border:1px solid #ccc;
 	overflow: auto;
 	white-space: nowrap;
-	height:-webkit-calc(100% - 10px);
+	height:-webkit-calc(100% - 45px);
 	font-size:14px;
 	list-style-position: outside;
 	padding-left:50px;
@@ -44,31 +57,32 @@ header{
 .file li{
 	color:#aaa;
 	margin:0.2em;
-	line-height: 1.5em;
 	font-family: Courier;
 }
 
 .file li span{
+	line-height: 1.5em;
+	display: inline-block;
 	color:#333;
 }
 
-.file .copy{
+.file .copy span{
 
 }
 
-.file .replace{
+.file .replace span{
 
-	background: rgb(204,204,235);
+	background: rgb(182,221,255);
 
 }
 
-.file .insert{
+.file .insert span{
 
 	background: rgb(204,235,204);
 
 }
 
-.file .delete{
+.file .delete span{
 
 	background: rgb(235,204,204);
 

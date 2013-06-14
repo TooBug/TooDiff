@@ -61,7 +61,7 @@ function getEditProgress(target1,target2){
 				if(transferMatrix[i-1][j-1].stepCount + (target1[i-1] === target2[j-1]?0:1) < tempMin){
 
 					tempMin = transferMatrix[i-1][j-1].stepCount + (target1[i-1] === target2[j-1]?0:1);
-					if(target1[i-1] === target2[j-1]){
+					if(target1[i-1].trim() === target2[j-1].trim()){
 						tempProgress = {
 							type:'copy',
 						};
