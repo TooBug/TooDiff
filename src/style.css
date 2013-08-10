@@ -52,6 +52,7 @@ header{
 	font-size:14px;
 	list-style-position: outside;
 	padding-left:50px;
+	-webkit-user-select:text;
 }
 
 .file li{
