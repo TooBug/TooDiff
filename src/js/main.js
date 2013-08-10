@@ -145,11 +145,22 @@ function doDiff(text1,text2){
 					class:"delete",
 					text:progressItem.target1
 				};
+				editedLines2[progressItem.position2]={
+					class:editedLines2[progressItem.position2] && editedLines2[progressItem.position2].class || "copy",
+					text:(editedLines2[progressItem.position2] && editedLines2[progressItem.position2].text || progressItem.target2)
+							 + '<br />'
+				};
 				
 
 				break;
 
 			case 'insert':
+
+				editedLines1[progressItem.position1]={
+					class:editedLines1[progressItem.position1] && editedLines1[progressItem.position1].class || "copy",
+					text:(editedLines1[progressItem.position1] && editedLines1[progressItem.position1].text || progressItem.target1)
+							 + '<br />'
+				};
 
 				editedLines2[progressItem.position2]={
 					class:"insert",
@@ -168,10 +179,10 @@ function doDiff(text1,text2){
 function showFileContent(file1,file2){
 
 	if(typeof file1 === 'string'){
-		file1 = file1.splie('\n');
+		file1 = file1.split('\n');
 	}
 	if(typeof file2 === 'string'){
-		file2 = file2.splie('\n');
+		file2 = file2.split('\n');
 	}
 
 	if(file1){
@@ -189,7 +200,7 @@ function showFileContent(file1,file2){
 	function mapStyledLines(editedLine){
 
 		if(typeof editedLine === 'object'){
-			return '<li class="' + editedLine.class + '"><span>' + editedLine.text.replace(/</g,'&lt;').replace(/ /g,'&nbsp;').replace(/\t/g,'&nbsp;&nbsp;&nbsp;&nbsp;') + '</span></li>';
+			return '<li class="' + editedLine.class + '"><span>' + editedLine.text.replace(/<br ?\/?>/g,'_@@br@@_').replace(/</g,'&lt;').replace(/ /g,'&nbsp;').replace(/\t/g,'&nbsp;&nbsp;&nbsp;&nbsp;').replace(/_@@br@@_/g,'</span><br /><span class="blank">') + '</span></li>';
 		}else{
 			return editedLine;
 		}

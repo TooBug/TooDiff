@@ -37,7 +37,9 @@ function getEditProgress(target1,target2){
 					stepCount:tempMin,
 					type:'delete',
 					target1:target1[i-1],
+					target2:target2[j-1],
 					position1:i,
+					position2:j,
 					x:i-1,
 					y:j
 				};
@@ -49,7 +51,9 @@ function getEditProgress(target1,target2){
 					tempProgress = {
 						stepCount:tempMin,
 						type:'insert',
+						target1:target1[i-1],
 						target2:target2[j-1],
+						position1:i,
 						position2:j,
 						x:i,
 						y:j-1
