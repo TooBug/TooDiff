@@ -2,6 +2,7 @@
 	"name":"TooDiff",
 	"main":"index.html",
 	"window":{
+		"icon": "icon.png",
 		// "frame":false,
 		"toolbar": false,
 		"width":900,
