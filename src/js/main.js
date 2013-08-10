@@ -16,10 +16,20 @@
 	}
 
 	var fs = require('fs');
+	var cwd = process.env.PWD+'/';
+
+	if(!fs.existsSync(file1)){
+		file1 = cwd + file1;
+	}
+	if(!fs.existsSync(file2)){
+		file2 = cwd + file2;
+	}
 
 	window.text1 = fs.readFileSync(file1,'utf8');
 	window.text2 = fs.readFileSync(file2,'utf8');
 
+	$('#fileInfo1').text(file1);
+	$('#fileInfo2').text(file2);
 	doDiff(text1,text2);
 
 })();
