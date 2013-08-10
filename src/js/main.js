@@ -79,10 +79,10 @@ $('#file1,#file2').on('dragover',function(){
 			}else{
 				if($this.is('#file1')){
 					window.text1 = e.target.result;
-					$('#fileInfo1').text(file.name);
+					$('#fileInfo1').text(file.path);
 				}else{
 					window.text2 = e.target.result;
-					$('#fileInfo2').text(file.name);
+					$('#fileInfo2').text(file.path);
 				}
 			}
 
