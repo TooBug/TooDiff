@@ -10,7 +10,7 @@ clone后直接用node-webkit针对源码目录即可运行。
 
 [Windows](http://url.cn/FtDkyp)
 
-[Mac](http://url.cn/GMLDEN)
+[Mac](http://url.cn/ICwVid)
 
 
 ## 更新日志
