@@ -37,7 +37,8 @@ header{
 	background:#eee;
 	border:1px solid #ccc;
 	-webkit-user-select:text;
-
+	white-space: nowrap;
+	overflow: hidden;
 }
 
 .file{
